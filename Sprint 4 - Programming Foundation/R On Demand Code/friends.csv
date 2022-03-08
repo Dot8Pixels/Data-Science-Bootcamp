@@ -1,0 +1,6 @@
+"id","friends","ages","movies","animals"
+1,"Toy",33,TRUE,"cat"
+2,"John",30,TRUE,"cat"
+3,"Mary",25,FALSE,"dog"
+4,"Anna",28,FALSE,"dog"
+5,"David",31,TRUE,"cat"

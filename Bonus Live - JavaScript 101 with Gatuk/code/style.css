@@ -1,0 +1,13 @@
+.mood-button{
+    font-size: 30px;
+}
+
+#description-input{
+    margin: 8px 0
+}
+
+.mood-cell{
+    width: 20px;
+    height: 20px;
+    background-color: aqua;
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/gunsr/Desktop/Programming/Data Science Bootcamp by DATAROCKIE/Sprint 3 - Databases with SQL/SQL for Data Analysis 101/SQL 101 for study/chinook.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="114"/><column_width id="3" width="4616"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainalbums"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">/*SELECT * FROM customers
+WHERE NOT (Country = &quot;USA&quot; OR Country = &quot;Canada&quot; OR Country = &quot;France&quot;);*/
+
+/*SELECT * FROM customers
+WHERE Country NOT IN (&quot;Brazil&quot;,&quot;Germany&quot;,&quot;Normay&quot;);*/
+
+/*SELECT * FROM customers
+WHERE CustomerId BETWEEN 5 AND 10;
+
+SELECT * FROM customers
+WHERE CustomerId &gt;=5 AND CustomerId &lt;= 10;*/
+
+/*SELECT InvoiceDate FROM invoices
+WHERE InvoiceDate BETWEEN '2009-01-01 00:00:00' AND '2009-01-31 20:00:00'*/
+
+/*SELECT * FROM customers
+WHERE Company IS NOT NULL;*/
+
+/*SELECT FirstName, LastName, Country, Email FROM customers
+WHERE Email NOT LIKE &quot;%@hotmail.com&quot;*/
+
+/*SELECT FirstName, LastName, Country, Email FROM customers
+WHERE Phone LIKE &quot;%99%&quot;;*/
+
+/*SELECT FirstName, LastName, Country, Email FROM customers
+WHERE FirstName LIKE &quot;Leon__&quot;;*/
+
+/*SELECT 
+	Company,
+	coalesce(Company, 'End Customer') AS &quot;Company Clean&quot;,
+	CASE WHEN Company IS NULL THEN &quot;End Customer&quot;
+		ELSE &quot;Corporate&quot;
+	END AS &quot;Segment&quot;
+FROM customers;*/
+
+/*SELECT * FROM artists, albums
+WHERE artists.ArtistId = albums.ArtistId;*/
+
+/*SELECT * FROM artists JOIN albums
+ON artists.ArtistId = albums.ArtistId;*/
+
+/*SELECT
+	artists.ArtistId,
+	artists.Name AS artist_name,
+	albums.Title AS album_name,
+	tracks.Name AS name_song
+FROM artists, albums, tracks
+WHERE artists.ArtistId = albums.ArtistId -- PK = FK
+	AND albums.AlbumId = tracks.AlbumId
+	AND artists.ArtistId IN (8, 100, 120);*/
+	
+/*SELECT 
+	ROUND(AVG(Milliseconds), 2) avg_mill,
+	SUM(Milliseconds) sum_mill,
+	MIN(Milliseconds) min_mill,
+	MAX(Milliseconds) max_mill,
+	COUNT(Milliseconds) count_mill,
+FROM tracks;*/
+
+/*SELECT COUNT(DISTINCT Country) FROM customers;*/
+
+/*SELECT Country, COUNT(*) AS count_country FROM customers
+GROUP BY Country;*/
+
+/*SELECT 
+	genres.Name, COUNT(*) AS count_songs 
+FROM 
+	genres, 
+	tracks
+WHERE 
+	genres.GenreId = tracks.GenreId 
+	AND genres.Name &lt;&gt; &quot;Rock&quot;
+GROUP BY 
+	genres.Name
+HAVING 
+	COUNT(*) &gt;= 100;*/
+	
+SELECT genres.Name, COUNT(*)
+FROM genres
+JOIN tracks
+ON genres.GenreId = tracks.GenreId
+GROUP BY genres.Name
+ORDER BY COUNT(*) DESC LIMIT 5;
+	
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

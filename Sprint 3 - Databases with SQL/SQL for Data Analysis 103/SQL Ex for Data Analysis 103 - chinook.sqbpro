@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/gunsr/Desktop/Programming/Data Science Bootcamp by DATAROCKIE/Sprint 3 - Databases with SQL/SQL for Data Analysis 101/SQL 101 for study/chinook.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="114"/><column_width id="3" width="4616"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainalbums"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="albums" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="70"/><column index="2" value="300"/><column index="3" value="66"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">/*SELECT
+	A.ArtistId,
+	A.name artistName,
+	B.Title albumName
+FROM artists A, albums B
+WHERE A.ArtistId = B.ArtistId AND A.name LIKE 'C%';*/
+
+/*SELECT
+	A.ArtistId,
+	A.name artistName,
+	B.Title albumName,
+	C.name trackName
+FROM artists A 
+INNER JOIN albums B ON A.ArtistId = B.ArtistId
+INNER JOIN tracks C ON B.AlbumId = C.AlbumId
+WHERE A.name LIKE 'Aerosmith';*/
+
+/*SELECT
+	COUNT(*) Aerosmith_Song
+FROM artists A 
+INNER JOIN albums B ON A.ArtistId = B.ArtistId
+INNER JOIN tracks C ON B.AlbumId = C.AlbumId
+WHERE A.name LIKE 'Aerosmith';*/
+
+/*CREATE TABLE book_shop(
+	id INT,
+	name TEXT,
+	release_year INT
+	);
+CREATE TABLE favorite_book(
+	id INT,
+	author TEXT,
+	reviews REAL
+	);
+INSERT INTO book_shop VALUES
+	(1, 'Think Like A Freak', 2014),
+	(2, 'Ultralearning', 2019),
+	(3, 'Blue Ocean Strategy', 2015),
+	(4, 'The Power of Habit', 2012),
+	(5, 'Outliers', 2008);
+INSERT INTO favorite_book VALUES
+	(1, 'Stenven D. Levitt, Stephen J. Dubner', 1904),
+	(4, 'Charkes Duhigg', 12007),
+	(5, 'Malcolm Gladwell', 12063);*/
+	
+/*SELECT * FROM book_shop;
+SELECT * FROM favorite_book;
+
+SELECT * FROM book_shop A
+JOIN favorite_book B ON A.id = B.id;
+
+SELECT * FROM book_shop A
+LEFT JOIN favorite_book B ON A.id = B.id;*/
+
+/*CREATE TABLE ranks(
+	rank TEXT
+	);
+CREATE TABLE suits(
+	suit TEXT
+	);
+INSERT INTO ranks VALUES
+	('2'),('3'),('4'),('5'),('6'),('7'),('8'),('9'),('10'),('J'),('Q'),('K'),('A');
+INSERT INTO suits VALUES
+	('Clubs'),('Diamonds'),('Hearts'),('Spades');*/
+	
+/*SELECT * FROM ranks;
+SELECT * FROM suits;
+
+SELECT * FROM ranks, suits ORDER BY suit;
+
+SELECT * FROM ranks CROSS JOIN suits ORDER BY suit;*/
+
+/*CREATE TABLE employee(
+	id INT,
+	name TEXT,
+	level TEXT,
+	manager_id INT
+	);
+INSERT INTO employee VALUES
+	(1, 'David', 'CEO', NULL),
+	(2, 'John', 'SVP', 1),
+	(3, 'Mary', 'VP', 2),
+	(4, 'Adam', 'VP', 2),
+	(5, 'Scott', 'Manager', 3),
+	(6, 'Louise', 'Manager', 3),
+	(7, 'Kevin', 'Manager', 4),
+	(8, 'Takeshi', 'Manager', 4),
+	(9, 'Joe', 'AM', 6),
+	(10, 'Anna', 'AM', 7);*/
+
+	
+/*SELECT * FROM employee;
+SELECT
+	e1.name staff,
+	e1.level staff_level,
+	e2.name manager,
+	e2.level manager_level,
+	e1.name || 'report to ' || e2.name AS comment
+FROM employee e1, employee e2
+WHERE e1.manager_id = e2.id;*/
+
+/*SELECT id FROM book_shop
+INTERSECT
+SELECT id FROM favorite_book;
+
+SELECT id FROM book_shop
+EXCEPT
+SELECT id FROM favorite_book;*/
+
+/*DROP TABLE IF EXISTS book_shop_new;
+
+CREATE TABLE book_shop_new(
+	id INT,
+	name TEXT,
+	release_year INT
+	);
+INSERT INTO book_shop_new VALUES
+	(1, 'Think Like A Freak', 2014),
+	(6, 'Business Data Science', 2020),
+	(7, 'Subliminal', 2018),
+	(8, 'Good Strategy Bad Strategy', 2015);*/
+
+/*SELECT * FROM book_shop
+UNION ALL
+SELECT * FROM book_shop_new;*/
+
+--SELECT * FROM tracks ORDER BY Milliseconds DESC LIMIT 1;
+
+/*SELECT MAX(Milliseconds) FROM tracks;
+SELECT * FROM tracks WHERE Milliseconds = 5286953;*/
+
+
+--SELECT * FROM tracks WHERE Milliseconds =(SELECT MAX(Milliseconds) FROM tracks);
+
+/*SELECT FirstName, LastName, Country FROM customers WHERE Country = 'USA';
+
+SELECT FirstName, LastName, Country FROM 
+(SELECT * FROM customers WHERE Country = 'USA');*/</sql><current_tab id="0"/></tab_sql></sqlb_project>

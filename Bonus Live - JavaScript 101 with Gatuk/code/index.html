@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1 style="color: pink; background-color: #383838">My Daily Mood</h1>
+
+    <section>
+        <h2>What's your mood today?</h2>
+        <button class="mood-button" onclick="onMoodClicked('good')">😁</button>
+        <button class="mood-button" onclick="onMoodClicked('neutral')">😑</button>
+        <button class="mood-button" onclick="onMoodClicked('bad')">😭</button>
+        <div id="description-input">
+            <textarea placeholder="description..." id="description-input-box"> </textarea>
+        </div>
+        <button onclick="onSubmit()">Log my mood!</button>
+    </section>
+
+    <section>
+        <h2>Mood List</h2>
+
+        <section id='mood-list'>
+        </section>
+        
+        <label>Description: xxxx</label>
+    </section>
+
+  </body>
+</html>
